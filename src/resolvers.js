@@ -12,6 +12,7 @@ const Task = {
   id: (parent, args, context, info) => parent.id,
   title: (parent) => parent.title,
   status: (parent) => parent.status,
+  asigned: (parent) => parent.asigned,
 }
 
 const Query = {
@@ -45,6 +46,14 @@ const Mutation = {
       },
     });
   },
+  createTask: (parent, args) => {
+    return prisma.task.create({
+      data: {
+        title: args.title,
+        status: args.status,
+      }
+    })
+  }
 };
 
 const resolvers = { Task, User, Query, Mutation };

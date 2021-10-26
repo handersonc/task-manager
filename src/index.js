@@ -4,7 +4,9 @@ const { ApolloServer } = require('apollo-server')
 const { typeDefs } = require('./schema')
 const { resolvers } = require('./resolvers')
 
-const port = process.env.PORT || 9090;
+require('dotenv').config();
+
+const port = process.env.PORT || 4000;
 
 const server = new ApolloServer({ resolvers, typeDefs });
 
